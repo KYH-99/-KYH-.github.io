@@ -1,0 +1,178 @@
+/* 스타일링: 전체 페이지 배경 색상 및 중앙 정렬 */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #E0F7FA;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* 카테고리 버튼 스타일링 */
+.btn-category {
+    background-color: #80CBC4;
+    border-color: #80CBC4;
+    color: white;
+    width: 100px;
+    margin: 0 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-category:hover {
+    background-color: #4DB6AC;
+    border-color: #4DB6AC;
+}
+
+.btn-category.active {
+    background-color: #4DB6AC;
+    border-color: #4DB6AC;
+}
+
+/* 시계 컨테이너 스타일링 */
+.clock-container {
+    background-color: #A5D6A7;
+    padding: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* 추가: 시계 컨테이너를 가장 아래에 배치 */
+}
+
+.content-layer {
+    position: relative;
+    z-index: 2; /* 최상위 레이어 */
+}
+
+.clock {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#clock-time {
+    font-size: 2.5em;
+    color: #004D40;
+    margin-bottom: 20px;
+}
+
+/* 색상 변경 버튼을 사각형으로 변경 */
+.color-picker {
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+h4 {
+    color: #004D40;
+    margin-bottom: 10px;
+}
+
+.btn-primary, .btn-success {
+    background-color: #80CBC4;
+    border-color: #80CBC4;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover, .btn-success:hover {
+    background-color: #4DB6AC;
+    border-color: #4DB6AC;
+}
+
+#alarmMessage, #timerDisplay {
+    color: #004D40;
+    margin-top: 10px;
+}
+
+/* 카테고리 컨테이너 스타일링 */
+.category-container {
+    display: none;
+}
+
+.category-container.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 타이머 진행 상황을 중간 레이어로 배치 */
+.timer-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    transform-origin: bottom;
+    transition: height 0.1s;
+    z-index: 1; /* 중간 레이어 */
+}
+
+/* 타이머 취소 버튼 스타일링 */
+.cancel-timer {
+    width: 30px;
+    height: 30px;
+    background-color: #FF6F61;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 10px;
+    display: none; /* 기본적으로 숨김 */
+}
+
+/* 알람 모달 스타일링 */
+.alert-modal {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 3; /* 추가: 모달을 가장 위에 배치 */
+}
+
+.alert-content {
+    background-color: rgba(255, 255, 255, 0.9); /* 반투명 배경 */
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+}
+
+.close-alert {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #FF6F61;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
