@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 시계와 알람</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="row align-items-center position-relative">
+            <div class="col-md-12 d-flex flex-column align-items-center position-relative">
+                <div class="clock-container" id="clock-container">
+                    <div id="timerProgress" class="timer-progress"></div>
+                    <div id="content-layer" class="content-layer">
+                        <div id="clock" class="clock category-container active">
+                            <div id="clock-time">00:00:00</div>
+                            <input type="color" id="colorPicker" class="color-picker" value="#000000" title="색상 변경">
+                        </div>
+                        <div id="alarm" class="category-container">
+                            <h4>알람 설정</h4>
+                            <input type="time" id="alarmTime" class="form-control">
+                            <button class="btn btn-primary mt-2" onclick="setAlarm()">알람 설정</button>
+                            <div id="alarmMessage" class="mt-3"></div>
+                        </div>
+                        <div id="timer" class="category-container">
+                            <h4>타이머 설정</h4>
+                            <div class="d-flex">
+                                <input type="number" id="timerHours" class="form-control" placeholder="시" min="0">
+                                <input type="number" id="timerMinutes" class="form-control" placeholder="분" min="0">
+                                <input type="number" id="timerSeconds" class="form-control" placeholder="초" min="0">
+                            </div>
+                            <div class="d-flex mt-2">
+                                <button class="btn btn-success" onclick="startTimer()">타이머 시작</button>
+                                <div class="cancel-timer ml-2" id="cancel-timer" onclick="cancelTimer()">&#x2715;</div>
+                            </div>
+                            <div id="timerDisplay" class="mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-group mt-3">
+                    <button class="btn btn-category active" id="btn-clock" onclick="showCategory('clock')">시계</button>
+                    <button class="btn btn-category" id="btn-alarm" onclick="showCategory('alarm')">알람</button>
+                    <button class="btn btn-category" id="btn-timer" onclick="showCategory('timer')">타이머</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="alertModal" class="alert-modal">
+        <div class="alert-content">
+            <span id="alertMessage">알람이 울립니다!</span>
+            <div class="close-alert" onclick="stopAlarm()">&#x2715;</div>
+        </div>
+    </div>
+    <audio id="alarmSound" src="./alarm.mp3.mp3"></audio> <!-- 알람 소리 파일 -->
+    <script src="script.js"></script>
+</body>
+</html>
 
